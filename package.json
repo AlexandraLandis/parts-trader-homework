@@ -1,0 +1,33 @@
+{
+  "name": "parts-trader-homework",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright + TypeScript tests for automationexercise.com: Test Cases 14 and 15 (UI) and API 7-10 (verifyLogin).",
+  "scripts": {
+    "test": "playwright test",
+    "test:dev": "TEST_ENV=dev playwright test",
+    "test:test": "TEST_ENV=test playwright test",
+    "test:all-browsers": "playwright test --project=api --project=chromium --project=firefox --project=webkit",
+    "test:api": "playwright test --project=api",
+    "test:ui": "playwright test --project=chromium",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings=0",
+    "check": "npm run typecheck && npm run lint",
+    "report": "playwright show-report",
+    "prepare": "husky"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@faker-js/faker": "^10.6.0",
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.6",
+    "eslint": "^10.14.0",
+    "eslint-plugin-playwright": "^2.12.2",
+    "husky": "^9.1.7",
+    "typescript": "~6.0.0",
+    "typescript-eslint": "^8.72.1"
+  }
+}

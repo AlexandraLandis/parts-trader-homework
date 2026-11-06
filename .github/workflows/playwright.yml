@@ -1,0 +1,33 @@
+name: Playwright Tests
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+jobs:
+  test:
+    # Above the config's 50-minute globalTimeout, so Playwright stops first and still reports.
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+    - uses: actions/setup-node@v6
+      with:
+        node-version: lts/*
+    - name: Install dependencies
+      run: npm ci
+    # Playwright does not type-check; run tsc first (TypeScript guide), then lint.
+    - name: Type-check
+      run: npm run typecheck
+    - name: Lint
+      run: npm run lint
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+    - name: Run Playwright tests
+      run: npx playwright test
+    - uses: actions/upload-artifact@v5
+      if: ${{ !cancelled() }}
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30

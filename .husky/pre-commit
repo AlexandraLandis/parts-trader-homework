@@ -1,0 +1,3 @@
+# Blocks the commit if the code doesn't type-check, lint or pass the tests.
+npm run check
+npm test

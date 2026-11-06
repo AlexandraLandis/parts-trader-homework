@@ -1,0 +1,15 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# Playwright MCP config, snapshots and logs
+/.mcp.json
+/.playwright-mcp/
+
+# Claude Code local settings
+/.claude/
