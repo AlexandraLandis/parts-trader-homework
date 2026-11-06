@@ -13,11 +13,8 @@ export class ProductGrid {
   /** Adds each product to the cart from its hover overlay, closing the "Added!" popup each time. */
   async addToCart(...names: string[]): Promise<void> {
     for (const name of names) {
-      // Each card has two "Add to cart" buttons (ISSUES.md, Issue 21). One is always shown on the
-      // card. The other is on an orange overlay that the site hides until the mouse is over the
-      // card, and it covers the card when it appears. A user's mouse has to cross the card to
-      // reach either button, so the overlay's is the one they actually click. The test hovers
-      // first to show the overlay, then clicks that button.
+      // Each card has two "Add to cart" buttons (ISSUES.md, Issue 21). The one users actually
+      // click is on an overlay that only appears while the mouse is over the card, so hover first.
       const card = this.root.locator('.single-products').filter({ has: this.page.getByText(name, { exact: true }) });
       await card.hover();
       await card.locator('.product-overlay').getByText('Add to cart').click();

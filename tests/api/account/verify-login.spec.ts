@@ -77,7 +77,6 @@ test.describe('Verify login API', () => {
     expect(body).toEqual({ responseCode: 404, message: 'User not found!' });
   });
 
-  // A classic way to get past a login check: text that turns the database query into "always true".
   test('reports "User not found!" for SQL injection in the password', { tag: ['@p1', '@API-10'] }, async ({ api, registeredUser }) => {
     const body = await api.verifyLogin({ email: registeredUser.email, password: "' OR '1'='1" });
 

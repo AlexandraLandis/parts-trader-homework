@@ -96,7 +96,7 @@ tests/
 - **Page object model.** Page objects hold locators and actions; the tests make the assertions.
 - **Generated test data.** Each test gets a new user from Faker, with a unique email, so tests are independent and give the same result on every run. The user's account is deleted after the test.
 - **Random products.** The order tests buy products picked at random from API 1 (two by default), and the report lists which ones. `test.use({ productChoice: 3 })` picks three; `test.use({ productChoice: ['Blue Top'] })` buys specific products, e.g. to rerun a failure.
-- **Data setup through the API.** The API tests that need an existing account create it with API 11 and delete it with API 12, as the exercise anticipates. POST requests are sent as form data, which the API requires.
+- **Data setup through the API.** The API tests that need an existing account create it with API 11 and delete it with API 12. POST requests are sent as form data, which the API requires.
 - **Waiting for pages to load after navigation.** Some buttons on this site (like "Proceed To Checkout") don't work until the page's scripts have loaded, so header navigation waits for the next page.
 - **Ads and analytics are blocked.** They slow pages down, and one full-screen ad interrupts navigation.
 - **Following the written steps.** The UI tests follow each test case's written steps, and each step shows up by name in the report. "Your order has been placed successfully!" only shows while the payment is being sent, so the test reads it inside the page as the form is submitted (see `PaymentPage.messageShownOnSubmit()`).

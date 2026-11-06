@@ -16,7 +16,7 @@ jobs:
         node-version: lts/*
     - name: Install dependencies
       run: npm ci
-    # Playwright does not type-check; run tsc first (TypeScript guide), then lint.
+    # Playwright doesn't type-check the tests, so run tsc first.
     - name: Type-check
       run: npm run typecheck
     - name: Lint

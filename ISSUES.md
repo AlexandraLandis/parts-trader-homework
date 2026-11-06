@@ -109,7 +109,7 @@ Defects found on the dev environment (<https://automationexercise.com/>) while e
 
 - Issue 18: The site's test case steps have errors
   - Description: In TC18, the example ("Dress") contradicts the expected result ("WOMEN - TOPS PRODUCTS"). There are also smaller errors: "detail detail" in TC8, "12.Click" in TC14 and TC24, "'Add To Cart'" in TC22 (the button says "Add to cart"), and "at the time registration of account" in TC23.
-  - Found by: Playwright MCP exploration: the collapsed test case steps were collected and compared with the site.
+  - Found by: Playwright MCP exploration, comparing the site's test case steps with the site.
   - Reproducible: Yes, every time.
 
 - Issue 19: Grammar and consistency errors in text users see
@@ -125,7 +125,7 @@ Defects found on the dev environment (<https://automationexercise.com/>) while e
     | Product names | *Men Tshirt*, *T SHIRT*, *T-Shirt*; *…Outfits -Pink* | One spelling, *T-Shirt*; *… - Pink* |
     | Invoice | *Hi , Your total purchase amount is…* | *Hi Alex, your total purchase amount is…* |
 
-  - Found by: Playwright MCP exploration: the text of every reachable page was collected, checked against a dictionary, and reviewed by hand.
+  - Found by: Playwright MCP exploration, reading through the site's text.
   - Reproducible: Yes, every time.
 
 - Issue 20: PATCH requests get a different error format from the rest of the API
@@ -158,7 +158,7 @@ Defects found on the dev environment (<https://automationexercise.com/>) while e
     ```
 
     Then the order tests could pick from only the products that can be bought, instead of assuming everything is in stock. Today every product is "In Stock" (checked all 34), so the tests pick from the full list.
-  - Found by: Writing the order tests (choosing random products from API 1), then checking every product page with the Playwright MCP browser.
+  - Found by: Writing the order tests, then checking the product pages with the Playwright MCP browser.
 
 ---
 
